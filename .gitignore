@@ -1,0 +1,22 @@
+# vim
+.*.sw[a-z]
+*.un~
+Session.vim
+
+# OSX
+.DS_Store
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# For projects using nanoc (http://nanoc.stoneship.org/)
+
+# Default location for output, needs to match output_dir's value found in config.yaml
+output/
+
+# Temporary file directory
+tmp/
