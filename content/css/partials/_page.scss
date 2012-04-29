@@ -1,0 +1,135 @@
+@import "compass/css3";
+
+//-----------------------------------------------
+// The following html5-boilerplate styles should
+// probably be customized for each site
+//-----------------------------------------------
+
+html {
+  overflow-y: auto;
+}
+
+body, select, input, textarea {
+  color: $font-color;
+  // Set your base font here, to apply evenly
+  // font-family: Georgia, serif;
+}
+
+//Headers (h1, h2, etc) have no default font-size or margin; define those yourself
+h1, h2 {
+  // Bold might not be the best choice if you are
+  // embedding a @font-face that's already bold
+  font-family: 'Gill Sans W01 Light', sans-serif;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 30px;
+  color: #3258a4;
+  letter-spacing: 12px;
+  text-align: center;
+  margin-top: 128px;
+}
+
+h2 {
+  font-size: 20px;
+  color: #676767;
+  letter-spacing: 8px;
+  text-align: center;
+  margin-top: 69px;
+  background: transparent url(/images/template/heading_fancy.png) no-repeat center 10px;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
+  margin-top: 69px;
+  color: $font-color;
+}
+
+a, a:active, a:visited {
+  color: $link-color;
+  text-decoration: none;
+}
+a:hover { color: $link-hover-color; }
+
+strong, th {
+  font-weight: bold;
+}
+
+small {
+  // Use font-size mixin to convert to percentage for YUI
+  // http://developer.yahoo.com/yui/3/cssfonts/#fontsize
+  @include font-size(11px);  // approx 85% when base-font-size eq 13px
+}
+
+// Add the 'required' attribute on your
+// inputs if you want to use these
+input:valid, textarea:valid {}
+input:invalid, textarea:invalid {
+  @include border-radius(1px);
+  @include single-box-shadow(red, 0, 0, 5px, 0);
+}
+.no-boxshadow input:invalid,
+.no-boxshadow textarea:invalid { background-color: #f0dddd; }
+
+
+//-----------------------------------
+// Add your own custom styles below
+//-----------------------------------
+
+body {}
+
+#container {
+  width: 636px;
+  margin: 0 auto;
+  
+  #info {
+    margin-left: 145px;
+    margin-top: 35px;
+    
+    #social {
+      float: left;
+      width: 32px;
+      height: 79px;
+      position: relative;
+      font-size: 0;
+      line-height: 0;
+      padding-right: 15px;
+      border-right: 1px solid #ccc;
+      margin-right: 15px;
+      
+      #facebook {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      
+      .icon {
+        display: inline-block;
+        zoom: 1;
+        *display: inline;
+      }
+    }
+    #contact {
+      float: left;
+      margin-top: -3px;
+      
+      p {
+        font-size: 14px;
+        margin-bottom: 17px;
+      }
+    }
+  }
+}
+
+header {}
+
+#main {}
+
+footer {}
+
+#mti_wfs_colophon a {
+  display: none;
+}
