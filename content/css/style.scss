@@ -1,28 +1,52 @@
 // Here's where we define some default constants
 @import "partials/base";
 
-// Then we'll import the compass extension
-@import "html5-boilerplate";
+//
+// compass-h5bp (HTML5 Boilerplate for Compass/SASS)
+// https://github.com/sporkd/compass-h5bp
+// http://html5boilerplate.com/
+//
+@import "h5bp";
 
-// Now, you can simply include everything
-// (except media) by uncommeting this line
-//@include html5-boilerplate;
+//
+// compass-h5bp normalize
+// https://github.com/sporkd/compass-h5bp/blob/master/stylesheets/h5bp/_normalize.scss
+//
+// Override compass-h5bp variables:
+// $line-height: 1.4;
+// $font-color: #222;
+// $link-color: #00e;
+// $link-hover-color: #06e;
+// $link-visited-color: #551a8b;
+// $selected-font-color: #fff;
+// $selected-background-color: #fe57a1;
+// $invalid-background-color: #f0dddd;
+//
+@include h5bp-normalize;
 
-// Or, you can pick and choose only the sections
-// you want by using the these includes
-@include html5-boilerplate-reset;
-@include html5-boilerplate-fonts;
-@include html5-boilerplate-styles;
-@include html5-boilerplate-helpers;
+//
+// compass-h5bp helper mixins
+// https://github.com/sporkd/compass-h5bp/blob/master/stylesheets/h5bp/_helpers.scss
+//
+@include h5bp-helpers;
 
-// Or, you can import the "overrides" partial if
-// you want more control over individual mixins
-//@import "partials/overrides";
+//
+// compass-h5bp chromeframe
+// https://github.com/sporkd/compass-h5bp/blob/master/stylesheets/h5bp/_chromeframe.scss
+//
+@include h5bp-chromeframe;
 
-// Finally, put your own styles in these partials
-// and add more as needed (i.e. forms, tables, nav)
+//
+// Your styles here
+//
 @import "partials/fonts";
 @import "partials/page";
 
 // Media should come last
 @import "partials/media";
+
+//
+// compass-h5bp media and print
+// https://github.com/sporkd/compass-h5bp/blob/master/stylesheets/h5bp/_media.scss
+//
+@include h5bp-media;
