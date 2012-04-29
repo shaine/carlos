@@ -1,27 +1,21 @@
--# Grab Google CDN's jQuery, with a protocol relative URL
--# Looks for google_api_key first in ENV['GOOGLE_API_KEY'] then in config/google.yml
--# remote_jquery and local_jquery helpers use minified jquery unless Rails.env is development
-- if !google_api_key.blank?
-  = javascript_include_tag "//www.google.com/jsapi?key=#{google_api_key}"
-  :javascript
-    google.load(#{ remote_jquery("1.6") });
-- else
-  = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/#{ local_jquery("1.6") }"
+-# JavaScript at the bottom for fast page loading:
+-# http://developer.yahoo.com/performance/rules.html#js_bottom
 
--# fall back to local jQuery if necessary
+-# Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline
+%script{ :src => "//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" }
 :javascript
-  window.jQuery || document.write("#{escape_javascript(javascript_include_tag('jquery'))}")
-  
-= javascript_include_tag 'application'
-    
--#  Append your own using content_for :javascripts
-= yield :javascripts
+  window.jQuery || document.write('<script src="js/vendor/jquery.js"><\/script>')
 
--# asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet
--# Looks for google_account_id first in ENV['GOOGLE_ACCOUNT_ID'] then in config/google.yml
-- if !google_account_id.blank?
-  :javascript
-    var _gaq=[["_setAccount","#{google_account_id}"],["_trackPageview"],["_trackPageLoadTime"]];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-    g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
-    s.parentNode.insertBefore(g,s)}(document,"script"));
+-# scripts concatenated and minified
+%script{ :src => 'js/application.js' }
+-# end scripts
+
+-# Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+-# mathiasbynens.be/notes/async-analytics-snippet
+:javascript
+  var _gaq=[['_setAccount','UA-27056804-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+
+%script{ :src => "js/application.js" }

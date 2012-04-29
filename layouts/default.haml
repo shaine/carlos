@@ -9,8 +9,7 @@
   <!--<![endif]-->
   %head
     = render "_head"
-
-  %body
+  %body{ :class => "#{controller.controller_name}" }
     -# Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
     -# chromium.org/developers/how-tos/chrome-frame-getting-started
     /[if lt IE 7 ]
@@ -20,28 +19,15 @@
         <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a>
         to experience this site.
 
-    %header
+    #container
+      %header#header
+        = render "_header"
 
-    #main{ :role => 'main' }= yield
+      #main{ :role => 'main' }
+        = yield
 
-    %footer
+      %footer#footer
+        = render "_footer"
 
-    -# JavaScript at the bottom for fast page loading:
-    -# http://developer.yahoo.com/performance/rules.html#js_bottom
-
-    -# Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline
-    %script{ :src => "//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" }
-    :javascript
-      window.jQuery || document.write('<script src="js/vendor/jquery.js"><\/script>')
-
-    -# scripts concatenated and minified
-    %script{ :src => 'js/application.js' }
-    -# end scripts
-
-    -# Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
-    -# mathiasbynens.be/notes/async-analytics-snippet
-    :javascript
-      var _gaq=[['_setAccount','UA-27056804-1'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
+    -# Javascript at the bottom for fast page loading
+    = render "_javascripts"
