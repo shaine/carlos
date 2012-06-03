@@ -79,7 +79,9 @@ input:invalid, textarea:invalid {
 // Add your own custom styles below
 //-----------------------------------
 
-body {}
+body {
+  background: #fff url(/images/template/bw_bg.jpg) no-repeat center 30px;
+}
 
 #container {
   width: 636px;

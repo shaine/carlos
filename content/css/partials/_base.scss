@@ -6,11 +6,11 @@ $font-size: 13px;  // default font-size for YUI fonts
 
 $line-height: 1.231;  // default line-height for YUI fonts
 
-$font-color: #ccc;
+$link-color: #000;
 
-$link-color: $font-color;
+$font-color: #666;
 
-$link-hover-color: #676767;
+$link-hover-color: $font-color;
 
 $link-active-color: $link-hover-color;
 
